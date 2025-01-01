@@ -1,6 +1,5 @@
 #!/bin/python
-
-from base64 import b64encode, b64decode
+from base64 import b64encode   # , b64decode
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
 from Crypto.Random import get_random_bytes
@@ -22,15 +21,6 @@ for n in range(31337):
     else:
         break
 
-    padded_pt = pad(pt, cipher.block_size) if len(pt)%cipher.block_size else pt
+    padded_pt = pad(pt, cipher.block_size)
     ct = cipher.encrypt(padded_pt)
     print(f"Result: {b64encode(ct).decode()}")
-
-    if n == 0:
-        print("I'm here to help!")
-        print("For the first 10, I will split them into blocks for you!")
-        print("After this, you'll have to split them yourself.")
-    if n < 10:
-        print(f"# of blocks: {len(ct)//16}.")
-        for n,i in enumerate(range(0, len(ct)-15, 16), start=1):
-            print(f"Block {n}: {b64encode(ct[i:i+16]).decode()}")

@@ -2,9 +2,6 @@ from base64 import b64encode, b64decode
 from pwn import *
 import string
 
-#the plaintext we send gets padded automatically
-
-
 
 flag = 'BTOzMDLwMTMyczW}'
 
@@ -56,4 +53,4 @@ while '{' not in flag:
             print("character found! new flag is: ",flag)
             break
 
-p.close() 
+p.close()
